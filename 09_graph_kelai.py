@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Overlap Graphs """
+
 
 import argparse
 import logging
@@ -14,7 +14,7 @@ from graphviz import Digraph
 
 
 class Args(NamedTuple):
-    """ Command-line arguments """
+    
     file: TextIO
     k: int
     debug: bool
@@ -24,7 +24,6 @@ class Args(NamedTuple):
 
 # --------------------------------------------------
 def get_args() -> Args:
-    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
         description='Overlap Graphs',
@@ -70,7 +69,6 @@ def get_args() -> Args:
 
 # --------------------------------------------------
 def main() -> None:
-    """ Make a jazz noise here """
 
     args = get_args()
 
@@ -104,7 +102,6 @@ def main() -> None:
 
 # --------------------------------------------------
 def find_kmers(seq: str, k: int) -> List[str]:
-    """ Find k-mers in string """
 
     n = len(seq) - k + 1
     return [] if n < 1 else [seq[i:i + k] for i in range(n)]
@@ -112,7 +109,6 @@ def find_kmers(seq: str, k: int) -> List[str]:
 
 # --------------------------------------------------
 def test_find_kmers() -> None:
-    """ Test find_kmers """
 
     assert find_kmers('', 1) == []
     assert find_kmers('ACTG', 1) == ['A', 'C', 'T', 'G']
